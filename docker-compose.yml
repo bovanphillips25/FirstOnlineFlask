@@ -1,0 +1,22 @@
+version: "3.2"
+services:
+  flask:
+    build: ./app
+    image: flask:latest
+    container_name: python
+    restart: always
+    environment:
+      - APP_NAME=flask
+    expose:
+      - 8080
+    stdin_open: true
+    tty: true
+    volumes:
+     - ./app:/home/myuser
+  nginx:
+    image: nginx:latest
+    build: ./nginx
+    container_name: nginx
+    restart: always
+    ports:
+     - "80:80"
