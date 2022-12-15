@@ -3,7 +3,7 @@ services:
   flask:
     build: ./app
     image: flask:latest
-    container_name: python
+    container_name: pythonbp25
     restart: always
     environment:
       - APP_NAME=flask
