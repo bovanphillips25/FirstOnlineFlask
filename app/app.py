@@ -10,4 +10,9 @@ app.wsgi_app = DebuggedApplication(app.wsgi_app, True)
 
 @app.route("/", methods=['GET'])
 def index_get():
-    return IndexController.get()
+    form = '<h1>Make a QR Code<h1><form method="POST" action="/"> \
+           <label for="qrurl">QR URL:</label><br> \
+           <input type="text" id="qrurl" name="qrurl" value="https://www.njit.edu/"><br>\
+           <input type="submit" value="Submit"> \
+           </form>'
+    return IndexController.get(), form
